@@ -19,7 +19,7 @@ import java.net.URL;
 
 public class TrackingService extends IntentService {
 
-    private String DATA_SEND_URL = "http:/10.0.2.2:8080/ayakubovych_war/android_data_update";
+    private String DATA_SEND_URL = "http://10.0.2.2:8080/ayakubovych_war/android_data_update";
 
     private LocationListener locationListener;
     private LocationManager locationManager;

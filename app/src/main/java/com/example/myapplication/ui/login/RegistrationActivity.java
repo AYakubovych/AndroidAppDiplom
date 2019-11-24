@@ -25,7 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private Button loginButton;
-    private final static String LOGIN_URL = "http:/10.0.2.2:8080/ayakubovych_war/android_registration";  // login url
+    private final static String LOGIN_URL = "http://10.0.2.2:8080/ayakubovych_war/android_registration";  // login url
     private int id;
     private FullData fullData;
 
