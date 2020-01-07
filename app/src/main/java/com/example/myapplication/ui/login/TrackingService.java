@@ -104,11 +104,11 @@ public class TrackingService extends IntentService {
 
 
     private void dataSend(String sufix){
-        String urlssufix = sufix;
+        String urlsufix = sufix;
 
         BufferedReader bufferedReader = null;
         try {
-            URL url = new URL(DATA_SEND_URL + urlssufix);
+            URL url = new URL(DATA_SEND_URL + urlsufix);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String result;
