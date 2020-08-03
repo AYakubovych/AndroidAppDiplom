@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/background"
+    tools:context="ddns.net.src.activity.SignUpActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp">
+
+    <LinearLayout
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:textSize="32sp"
+            android:textColor="@color/myBlue"
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="@string/sign_up"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+
+            <EditText
+                android:id="@+id/signUpFirstName"
+                style="@style/Widget.AppCompat.AutoCompleteTextView"
+                android:layout_width="135dp"
+                android:layout_height="42dp"
+                android:hint="@string/first_name"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/myBlue"
+                android:textColorHint="@color/myBlue"
+                app:layout_constraintBottom_toTopOf="@+id/registration"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/signUpLastName"
+                style="@style/Widget.AppCompat.AutoCompleteTextView"
+                android:layout_width="135dp"
+                android:layout_height="42dp"
+                android:hint="@string/last_name"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/myBlue"
+                android:textColorHint="@color/myBlue"
+                app:layout_constraintBottom_toTopOf="@+id/registration"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/signUpLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
+
+
+
+
+        <EditText
+            android:id="@+id/signUpEmail"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:layout_width="270dp"
+            android:layout_height="42dp"
+            android:hint="@string/prompt_email"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/myBlue"
+            android:textColorHint="@color/myBlue"
+            app:layout_constraintBottom_toTopOf="@+id/registration"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/signUpPassword"
+            android:layout_width="270dp"
+            android:layout_height="42dp"
+            android:hint="@string/prompt_password"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:textColor="@color/myBlue"
+            android:textColorHint="@color/myBlue"
+            app:layout_constraintTop_toBottomOf="@+id/username"
+            tools:targetApi="o" />
+
+        <EditText
+            android:id="@+id/signUpPasswordRepeat"
+            android:layout_width="270dp"
+            android:layout_height="42dp"
+            android:hint="@string/prompt_password_repeat"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:textColor="@color/myBlue"
+            android:textColorHint="@color/myBlue"
+            app:layout_constraintTop_toBottomOf="@+id/username"
+            tools:targetApi="o" />
+
+        <Button
+
+            android:id="@+id/signUpButton"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="160dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="57dp"
+            android:layout_marginTop="36dp"
+            android:background="@color/myBlue"
+            android:text="@string/sign_up"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/username"
+            tools:layout_editor_absoluteX="16dp" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

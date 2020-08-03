@@ -1,60 +1,59 @@
-package com.example.myapplication.ui.login;
+package ddns.net.src.activity;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.os.Handler;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.myapplication.R;
 
+import ddns.net.src.entities.UserData;
+
 public class StartActivity extends AppCompatActivity {
 
-    private Button button_login;
-    private Button button_registration;
+    private static int TIME_OUT = 2500;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_start);
 
-        button_login = findViewById(R.id.button_login);
-        button_registration = findViewById(R.id.button_registration);
-
         runtime_permission();
-        enable_buttons();
 
-
-    }
-
-    private void enable_buttons(){
-        button_login.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
+            public void run() {
 
-                Intent intent = new Intent(StartActivity.this, LogInActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+                if(UserData.getId() > 0){
+                    Intent i = new Intent(StartActivity.this, LogOutActivity.class);
+                    startActivity(i);
+                    finish();
 
-        button_registration.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(StartActivity.this, RegistrationActivity.class);
-                startActivity(intent);
-                finish();
+                }else{
+                    Intent i = new Intent(StartActivity.this, SignInActivity.class);
+                    startActivity(i);
+                    finish();
+                }
 
             }
-        });
+        }, TIME_OUT);
     }
 
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean("isLoggedIn",true);
+
+    }
+
+    //Ask permissions
     private boolean runtime_permission(){
         if(Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission
         .ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
@@ -72,7 +71,7 @@ public class StartActivity extends AppCompatActivity {
         if(requestCode == 100){
             if(grantResssults[0] == PackageManager.PERMISSION_GRANTED && grantResssults[1]
             == PackageManager.PERMISSION_GRANTED){
-                enable_buttons();
+
             }else{
                 runtime_permission();
             }
