@@ -55,11 +55,27 @@ public class StartActivity extends AppCompatActivity {
 
     //Ask permissions
     private boolean runtime_permission(){
-        if(Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission
-        .ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
+        if(Build.VERSION.SDK_INT >= 23 &&
+                ContextCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission
+                        .ACCESS_FINE_LOCATION)
+
+                !=
+                PackageManager.PERMISSION_GRANTED
+
+                &&
+                ContextCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.ACCESS_COARSE_LOCATION)
+                !=
+                PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(
+                        new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.INTERNET},
+                        100);
             return true;
         }
         return false;
